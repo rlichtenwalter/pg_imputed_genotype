@@ -14,3 +14,21 @@ unzip pg_imputed_genotype.zip
 </pre>
 
 <h3>Usage</h3>
+<pre>
+testuser=# SELECT '{0.5,0.5,0.0}'::imputed_genotype;
+ imputed_genotype
+------------------
+ {0.500,0.500,0}
+(1 row)
+
+testuser=# SELECT '{0.5,0.5,0.1}'::imputed_genotype;
+ERROR:  imputed_genotype probabilities must sum to <= 1.0: "{0.5,0.5,0.1}"
+LINE 1: SELECT '{0.5,0.5,0.1}'::imputed_genotype;
+               ^
+
+testuser=# SELECT '{0.2,0.5,0.1}'::imputed_genotype;
+  imputed_genotype
+\---------------------
+ {0.200,0.500,0.100}
+(1 row)
+</pre>
