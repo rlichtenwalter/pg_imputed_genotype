@@ -1,0 +1,5 @@
+# pg_imputed_genotype extension
+comment = 'an efficient, packed probability tuple suitable for imputed genotypes'
+default_version = '1.0'
+module_pathname = '$libdir/pg_imputed_genotype'
+relocatable = true
